@@ -1,0 +1,74 @@
+infPatient("Glauco Lindo1", 24, 90, 16, 110, 98, "No", 24, 0).
+infPatient("Glauco Lindo2", 24, 90, 16, 110, 98, "No", 24, 0).
+infPatient("Glauco Lindo3", 24, 90, 16, 110, 98, "No", 24, 0).
+infPatient("Glauco Lindo4", 24, 90, 16, 110, 98, "No", 24, 0).
+infPatient("Glauco Lindo5", 24, 90, 16, 110, 98, "No", 24, 0).
+
+inf_patient :-
+    infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
+    
+    write(patient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com)).
+	    format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com],
+           
+ligh_case_covid :-
+    infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
+               
+    T =< 37,
+    T >= 35,
+    Bpm < 100,
+    Pa < 18,
+    Pas > 100,
+    Sa >= 95,
+    Dis =:= 0,
+    Age < 60,
+    Com < 1,
+    
+    write('Light case: You must stay at home, under observation for 14 days!'),
+    format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com]),
+    nl
+
+average_case_covid :-
+    infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
+               
+    (T < 35; T >=37, T =<39),
+    Bpm > 100,
+    Pa > 19, 
+    Pa =< 30,
+    Age >= 60,
+    Age =< 79,
+    Com =:= 1,
+    
+    write('Light case: You must stay at home, under observation for 14 days'),
+    format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com]),
+    nl
+
+serious_cases_covid :-
+    patient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
+               
+	T >= 39,
+    Pas >= 90,
+    Pas =< 100,
+    Age > 80,
+    Com >= 2,
+
+    write('Serious case: Should be urgently referred to the hospital'),
+    format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com]),
+    nl
+
+very_serious_case_covid :-
+    patient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
+               
+    Pa > 30,
+    Pas < 90,
+    Sa < 95,
+    Dis =:= 1,
+
+    write('Serious case: Should be urgently referred to the hospital'),
+    format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com]),
+    nl 
+
+
+
+
+
+
