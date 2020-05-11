@@ -1,16 +1,9 @@
-infPatient("Glauco Lindo1", 24, 90, 16, 110, 98, "No", 24, 0).
-infPatient("Glauco Lindo2", 24, 90, 16, 110, 98, "No", 24, 0).
-infPatient("Glauco Lindo3", 24, 90, 16, 110, 98, "No", 24, 0).
-infPatient("Glauco Lindo4", 24, 90, 16, 110, 98, "No", 24, 0).
-infPatient("Glauco Lindo5", 24, 90, 16, 110, 98, "No", 24, 0).
-
-inf_patient :-
-    infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
-    
-    write(patient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com)).
-	format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com],
-    nl
-
+infPatient(jubileuson, 24, 90, 16, 110, 98, 0, 24, 0).
+infPatient(jairson, 36, 90, 16, 110, 97, 0, 24, 0).
+infPatient(jubilou, 40, 111, 28, 113, 98, 1, 63, 1).
+infPatient(jubilino, 24, 90, 16, 110, 95, 1, 24, 1).
+infPatient(jabulinare, 41, 127, 32, 87, 94, 1, 24, 2).
+  
 ligh_case_covid :-
     infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
                
@@ -26,7 +19,7 @@ ligh_case_covid :-
     
     write('Light case: You must stay at home, under observation for 14 days!'),
     format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com]),
-    nl
+    nl.
 
 average_case_covid :-
     infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
@@ -41,10 +34,10 @@ average_case_covid :-
     
     write('Light case: You must stay at home, under observation for 14 days'),
     format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com]),
-    nl
+    nl.
 
 serious_cases_covid :-
-    patient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
+    infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
                
 	T >= 39,
     Pas >= 90,
@@ -54,10 +47,10 @@ serious_cases_covid :-
 
     write('Serious case: Should be urgently referred to the hospital'),
     format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com]),
-    nl
+    nl.
 
 very_serious_case_covid :-
-    patient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
+    infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
                
     Pa > 30,
     Pas < 90,
@@ -66,7 +59,7 @@ very_serious_case_covid :-
 
     write('Serious case: Should be urgently referred to the hospital'),
     format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com]),
-    nl 
+    nl.
 
 
 
