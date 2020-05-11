@@ -1,4 +1,4 @@
-infPatient(jubileuson, 24, 90, 16, 110, 98, 0, 24, 0).
+infPatient(glaucoLindo, 24, 90, 16, 110, 98, 0, 24, 0).
 infPatient(jairson, 36, 90, 16, 110, 97, 0, 24, 0).
 infPatient(jubilou, 40, 111, 28, 113, 98, 1, 63, 1).
 infPatient(jubilino, 24, 90, 16, 110, 95, 1, 24, 1).
