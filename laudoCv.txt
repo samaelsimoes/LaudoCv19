@@ -8,8 +8,9 @@ inf_patient :-
     infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
     
     write(patient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com)).
-	    format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com],
-           
+	format('\n name: ~w \t temperature: ~d \t bpm: ~d \t pa: ~d \t pas: ~d \t sa: ~d \t dispine: ~w \t age: ~d \t comorbidities: ~d',[N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com],
+    nl
+
 ligh_case_covid :-
     infPatient(N, T, Bpm, Pa, Pas, Sa, Dis, Age, Com),
                
